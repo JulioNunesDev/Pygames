@@ -1,0 +1,45 @@
+import pygame 
+import sys
+#dicas
+
+
+para iniciar a tela 
+pygame.init() 
+
+setando uma lagura & altura da tela, e descrição:
+screen = pygame.display.set_mode((valor da largura, valor da altura)) //ele recebe uma tupla
+pygame.display.set_caption("nome da tela")
+
+// modo de criar o player #1
+player = pygame.React(x,y, lagura, altura)
+color = (0,0,0)
+
+//fps frame:
+relogio = pygame.time.Clock()
+
+
+// criar um while para manter o jogo atualizando
+
+// setando fonts
+font = pygame.font.Sysfont('nome da font', tamanho da font, anti-alising, cor da font = tupla)
+
+
+
+
+
+while condicao:
+    //setando fps
+    relogio(30)
+    //condicao de parada do jogo
+    for envent in pygame.envent.get():
+        if envent.type == QUIT:
+            pygame.quit()
+            sys.exit()
+    
+
+    //pintando a tela
+    pygame.fill((0,0,0))
+    //desenhando personagem na tela
+    pygame.draw.rect(tela, color, player) // desenhando o retangulo
+
+    pygame.display.update()
