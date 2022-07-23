@@ -16,6 +16,9 @@ fps = 60
 player = pygame.Rect(10, 10, 50, 50)
 player2 = pygame.Rect(300, 10, 100, 50)
 color = (255,255,0)
+
+
+
 while  True:
     mensagem = f'Pontos:{pontos}'
     texto_fomatado = font.render(mensagem, True, (255, 255, 255))
