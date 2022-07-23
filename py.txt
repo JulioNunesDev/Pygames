@@ -21,7 +21,7 @@ relogio = pygame.time.Clock()
 // criar um while para manter o jogo atualizando
 
 // setando fonts
-font = pygame.font.Sysfont('nome da font', tamanho da font, anti-alising, cor da font = tupla)
+font = pygame.font.Sysfont('nome da font', tamanho da font, bold = bool, italic = bool)
 
 variável = 0
 
@@ -32,6 +32,8 @@ while condicao:
 
     // mensagem
     mensagem = f'Pontos: {variável}'
+    text_formatado = font.render(mensagem, anti-alising = bool, cor da font = tupla))
+    
     //setando fps
     relogio(30)
     //condicao de parada do jogo
