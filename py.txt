@@ -23,11 +23,15 @@ relogio = pygame.time.Clock()
 // setando fonts
 font = pygame.font.Sysfont('nome da font', tamanho da font, anti-alising, cor da font = tupla)
 
+variável = 0
 
 
 
 
 while condicao:
+
+    // mensagem
+    mensagem = f'Pontos: {variável}'
     //setando fps
     relogio(30)
     //condicao de parada do jogo
@@ -39,7 +43,10 @@ while condicao:
 
     //pintando a tela
     pygame.fill((0,0,0))
+
     //desenhando personagem na tela
     pygame.draw.rect(tela, color, player) // desenhando o retangulo
 
     pygame.display.update()
+
+    //
