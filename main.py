@@ -24,7 +24,7 @@ fps = 60
 
 x_maca = randint(40, 1000)
 y_maca =  randint(60, 700)
-velocidade = 10
+velocidade = 2
 x_controller = velocidade
 y_controller = 0
 
@@ -62,6 +62,7 @@ def reiniciar_jogo():
 while  True:
     mensagem = f'Pontos:{pontos}'
     texto_fomatado = font.render(mensagem, True, (255, 255, 255))
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
