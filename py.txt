@@ -49,4 +49,5 @@ while condicao:
 
     pygame.display.update()
 
-    //
+    // setando texto na tela
+    screen.blit('mensagem', tupla=(x,y))
