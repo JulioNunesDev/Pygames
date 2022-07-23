@@ -1,11 +1,19 @@
 import sys
 import pygame
 from settings.settings import *
+from random import randint
 
 largura = 1280
 altura = 720
 
 pygame.init()
+
+#Setando musicas
+pygame.mixer.music.set_volume(0.10)
+musica_de_fundo = pygame.mixer.music.load('./sons/BoxCat.mp3')
+pygame.mixer.music.play(-1)
+
+barulho_colisao = pygame.mixer.Sound('./sons/smw_coin.wav')
 
 screen = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Julio Game');
@@ -13,9 +21,13 @@ pygame.display.set_caption('Julio Game');
 font = pygame.font.SysFont('arial', 35, True, True)
 pontos = 0
 fps = 60
-player = pygame.Rect(10, 10, 50, 50)
-player2 = pygame.Rect(300, 10, 100, 50)
-color = (255,255,0)
+
+x_maca = randint(40, 1000)
+y_maca =  randint(60, 700)
+
+
+cobra = pygame.Rect(10, 10, 20, 20)
+color = (255,0,0)
 
 
 
@@ -32,29 +44,33 @@ while  True:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_RIGHT]:
-        player.x += 3
+        cobra.x += 20
     elif keys[pygame.K_LEFT]:
-        player.x -= 3
+        cobra.x -= 20
     elif keys[pygame.K_UP]:
-        player.y -= 3
+        cobra.y -= 20
     
     elif keys[pygame.K_DOWN]:
-        player.y += 3 
-       
-    if player.colliderect(player2):
-        color = (255, 0, 245)
-        pontos+=1
+        cobra.y += 20 
+   
         
-    else:
-        color = (255, 255, 0)
     
-    if player.y >= altura:
-        player.y = 0
+    if cobra.y >= altura:
+        cobra.y = 0
    
 
     screen.fill((0, 0, 0))
-    pygame.draw.rect(screen, (255, 0 ,0), player, 3)
-    pygame.draw.rect(screen, color, player2, 3)
+    pygame.draw.rect(screen, (0, 255 ,0), cobra)
+    maca = pygame.draw.rect(screen, color, (x_maca, y_maca, 20, 20))
     clock.tick(fps)
     screen.blit(texto_fomatado, (1090, 40))
+
+        
+    if cobra.colliderect(maca):
+        x_maca = randint(40, 1000)
+        y_maca = randint(40, 700)
+        pontos+=1
+        barulho_colisao.play()
+
+
     pygame.display.update()
