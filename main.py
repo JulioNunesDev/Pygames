@@ -25,10 +25,15 @@ fps = 60
 x_maca = randint(40, 1000)
 y_maca =  randint(60, 700)
 
-
-cobra = pygame.Rect(10, 10, 20, 20)
+tam_cobra_w = 20
+tam_cobra_h = 20
+cobra = pygame.Rect(10, 10, tam_cobra_w, tam_cobra_h)
 color = (255,0,0)
 
+lista_cobra = []
+def aumenta_cobra(lista_cobra):
+    for XeY in lista_cobra:
+        pygame.draw.rect(screen, (0,255,0), (XeY[0],XeY[1], 20, 20))
 
 
 while  True:
@@ -70,7 +75,14 @@ while  True:
         x_maca = randint(40, 1000)
         y_maca = randint(40, 700)
         pontos+=1
+        tam_cobra_w += 20
         barulho_colisao.play()
 
+    lista_cabeca = []
+    lista_cabeca.append(cobra.x)
+    lista_cabeca.append(cobra.y)
 
+    lista_cobra.append(lista_cabeca)
+
+    aumenta_cobra(lista_cobra)
     pygame.display.update()
