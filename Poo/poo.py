@@ -7,8 +7,12 @@ class Cachorro:
 
 
     def latir(self):
-        print(f'{self.nome} está latindo')
+        print(f'{self.nome_cao} está latindo')
     
     def correr(self):
-        print(f'{self.nome} está correndo')
+        print(f'{self.nome_cao} está correndo')
 
+
+caramelo = Cachorro('Caramelo', 1, 'luxo', 'medio')
+print(caramelo.nome_cao)
+caramelo.latir()
